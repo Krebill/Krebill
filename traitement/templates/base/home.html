@@ -1,0 +1,123 @@
+{% extends 'base/menu.html'%}
+{% load static %}
+
+{% block content %}
+
+    <section class="hero">
+        <div class="con-hero">
+            <div class="con-hero-intr">
+                <img id="pro" src="{% static 'images/FB_IMG_16237422441171538.jpg' %}">
+                <h1 class="name">Krebill<br> Renoux</h1>
+
+           </div>
+           <div>
+                <h3 class='description'>FullStack Developpeur</h3>
+                <p class="slogan">J'apprends a coder les applications webs , Mobiles et Bureau</p>
+          </div>
+        </div>       
+    </section>
+
+    <section class="container section-2">
+        <h3>Mes Projets</h3>
+        <p>Mes projets,que je fais tout une journeé</p>
+        <div class="projets-w">
+            
+            {% for projet in projets %}
+                <div class="projet-col">
+                    <a href="{% url 'projet' projet.id %}">
+                        
+                        <img class="projet-t" src="{{projet.thumbnail.url}}">
+                    </a>
+                    <div class="projet-body">
+                        <h4>{{projet.title}}</h4>
+                    </div>
+                </div>
+            {% empty %}
+                <h3>Désolé..., Projet en cours d'ajout</h3>
+            {% endfor %}
+        </div>
+
+        <div class="con-w">
+            <h3>Plus d'information sur Moi</h3>
+            <p>En programmation, la taille de la mémoire cache revêt un attrait
+                tout particulier, car pour profiter de l'accélération fournie par cette
+                mémoire très rapide, il faut que les parties de programme tiennent
+                le plus possible dans cette mémoire cache. Comme elle varie
+                suivant les processeurs, ce rôle d'optimisation est souvent dédié au
+                compilateur. De ce fait, plus la taille de la mémoire cache est
+                grande, plus la taille des programmes accélérés peut être élevée.
+                z C'est aussi un élément souvent utilisé par les constructeurs pour
+                faire varier les performances d'un produit sans changer d'autres
+                matériels. Par exemple, pour les microprocesseurs, on trouve des
+                séries bridées (avec une taille de mémoire cache volontairement
+                réd ite) tels q e les D on che AMD o Cele on che Intel et des uite), tels que les Duron chez AMD ou Celeron chez Intel, et des
+                séries haut de gamme avec une grande mémoire cache comme les
+                processeurs Opteron chez AMD, ou Pentium EE ou Core i7 chez
+                Intel.
+                Gestion de la mémoire - J.M. Adam </p>
+        </div>
+        
+    </section>
+
+    <section class="section-1">
+        <div class="skill-con">
+            <h3>Language de Programmation</h3>
+            {% for skill in detailskills %}
+
+                <div class="skill-w">
+                    {% if skill.logo %}
+                        <img class="skill-logo" src="{{skill.logo.url}}">
+                    {% endif %}
+                    <div class="logo">
+                        <h5>{{ skill.title }}</h5>
+                        <p>{{ skill.body }}</p>
+                    </div>                   
+                </div>
+            {% endfor %}
+
+            <div class="autre-skill">
+            {% for skill in skills %}
+                <div class="skill-tag">
+                    <span>{{ skill.title }}</span>
+                </div>
+            {% endfor %}
+    
+            </div>
+        </div>   
+    </section>
+
+    <section class="section-1">
+        <div class="skill-con">
+            <h3>Approbations</h3>
+            <a href="{% url 'endo' %}">Ajouté une approbation.</a>
+            {% for e in endoces %}
+                <div style ='margin-bottom: 1em;' class="card">
+                    <div class="card-body">
+                        <h5>{{ e.nom }}</h5>
+                        <p>{{ e.body }}</p>
+                    </div>                   
+                </div>
+            {% endfor %}
+        </div>   
+    </section>
+
+    <section class="section-2">
+        <div class="container">
+            <form class="contact-form" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+
+                    <div class="mb-3">
+                        <label for="">{{field.label}}</label>
+                            {{field}}
+                    </div>
+
+                {% endfor %}
+
+        <input class="btn btn-secondary" type="submit" value="Envoyer">
+
+            </form>
+        </div>
+    </section>
+ 
+{% endblock content %}

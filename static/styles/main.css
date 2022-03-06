@@ -1,0 +1,165 @@
+body{
+    background-color:#fff;
+}
+.section-1{
+    background-color:#fff;
+    padding-top: 2em;
+    padding-bottom:2em;
+}
+.section-2{
+    background-color:#fff;
+    padding-top: 2em;
+    padding-bottom:2em;
+}
+
+.nav-bar{
+    background-color: black;
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-link{
+    color:#fff;
+}
+
+.hero{
+    background-color:#1F2428;
+    min-height: 70vh;
+    color:#fff;
+}
+
+#pro{
+    height:200px;
+    width:200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.con-hero{
+    width:800px;
+    margin:0 auto;
+    padding:2em;
+
+}
+.con-hero-intr{
+    display:flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    gap:0.5em;
+    margin-bottom:1em;
+}
+.name{
+    font-size: 100px;
+    letter-spacing: .1em;
+    font-weight: 600;
+    line-height: .7em;
+    
+}
+.description{
+    font-size: 65px;
+    text-align: center;
+}
+
+.slogan{
+    font-size: 20px;
+    text-align: center;
+}
+.projets-w{
+    display:flex;
+    justify-content: flex-start;
+    gap:2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    overflow-x: scroll ;
+}
+
+.projets-w::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0,3)   
+}
+
+.projets-w::-webkit-scrollbar-thumb{
+    background-color:#17a2b8;
+    outline: 1px solid slategrey;
+    border-radius: 100px;
+}
+.projets-w::-webkit-scrollbar-thumb:hover{
+    background-color:#18b5ce;
+}
+.projets-w::-webkit-scrollbar{
+    width: 8px;
+}
+.projet-col{
+    min-width: 300px;
+    object-fit: cover;
+}
+.projet-t{
+    width: 300px;
+}
+
+.projet-body{
+    background-color: #fff;
+    padding:1em;    
+}
+.skill-con{
+    width: 600px;
+    margin:0 auto;  
+    padding:1em;  
+}
+.skill-w{
+    margin-top:2em;
+    margin-bottom: 2em;
+    display:flex;
+    gap: 0.2em;
+    align-items: center;
+}
+
+.skill-logo{
+    object-fit:contain;
+    width:60px;
+}
+
+@media(max-width:900px){
+    .con-hero-intr{
+        flex-direction: column;
+    }
+    .projets-w{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:800px){
+    .skill-con{
+        width:100%;
+    }
+}
+@media(max-width:600px){
+    .con-hero{
+        width:100%;
+    }
+}
+@media(max-width:400px){
+    .skill-w{
+       flex-flow:column;
+    }
+}
+.skill-tag{
+    background-color: #C4E7F2;
+    width:fit-content;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.projet-img{
+    max-width: 800px;
+}
+.autre-skill{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1em;
+}
+.contact-form{
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+}

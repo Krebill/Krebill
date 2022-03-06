@@ -1,0 +1,22 @@
+{% extends 'base/menu.html'%}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h3>Projets</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{forms.media}}
+        {% for field in forms %}
+            <div class="mb-3">
+                <label for="">{{field.label}}</label>
+                    {{field}}
+            </div>
+
+        {% endfor %}
+
+        <input class="btn btn-secondary" type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock content %}

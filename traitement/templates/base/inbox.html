@@ -1,0 +1,33 @@
+{% extends 'base/menu.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container">
+        <h3>Mes Messages</h3>
+        <h5>Non-lu ({{nonlu}})</h5>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Sujet</th>
+                    <th>Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in inbox %}
+                    {% if message.is_read %}
+                    <tr>
+                    {% else %}
+                    <tr style="font-weight: 900;">
+                    {% endif%}
+                        <td>{{message.nom}}</td>
+                        <td><a href="{% url 'message' message.id %}">{{message.sujet}}</a></td>                       
+                        <td>{{message.created}}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock content %}
